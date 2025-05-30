@@ -7,17 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* 전체 레이아웃 설정 */
-        .logo-img {
-            height: 40px;
-            object-fit: contain;
-        }
-
-        .navbar {
-            background-color: #f7c3f6;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-        }
         body {
             display: flex;
             flex-direction: column;
@@ -31,8 +20,8 @@
 
         /* Hero Section */
         .hero {
-            background-color: #f7c3f6;
-            color: black;
+            background-color: #4CAF50;
+            color: white;
             text-align: center;
             padding: 60px 20px;
         }
@@ -56,8 +45,8 @@
 
         .hero-button {
             text-decoration: none;
-            color: black;
-            background-color: #f7c3f6;
+            color: white;
+            background-color: #4CAF50;
             font-weight: bold;
             font-size: 18px;
             padding: 15px 25px;
@@ -68,7 +57,7 @@
 
         .hero-button:hover {
             background-color: white;
-            color: #f7c3f6;
+            color: #4CAF50;
         }
 
         /* Features Section */
@@ -111,7 +100,7 @@
             margin-top: 15px;
             padding: 10px 15px;
             color: white;
-            background-color: #f7c3f6;
+            background-color: #4CAF50;
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s ease;
@@ -151,7 +140,8 @@
         .footer strong {
             font-weight: bold;
         }
-/* 📱 모바일 반응형 대응 */
+
+/* 모바일 반응형 대응 */
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 32px;
@@ -169,8 +159,6 @@
     .hero-button {
         width: 90%;
         text-align: center;
-        font-size: 16px;
-        padding: 12px 16px;
     }
 
     .features {
@@ -202,19 +190,23 @@
 <body>
     <div class="container">
         <!-- Header -->
-       <header class="navbar">
-    <div class="logo">
-        <img src="1698133786878_128.png" alt="아르테일 로고" class="logo-img">
-    </div>
-</header>
- <!-- Hero Section -->
+        <header class="navbar">
+            <div class="logo">아르테일 데이터베이스</div>
+        </header>
+
+        <!-- Hero Section -->
         <div class="hero">
             <div class="hero-content">
                 <h1>아르테일 데이터베이스</h1>
                 <p>아르테일에 대한 모든 정보를 한눈에!</p>
                 <div class="hero-links">
-         </div>
-      </div>
+                    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSRj5Swib-m3vK4_flan16RQud6EMcLCsuhwsLD4IrkzoNMaVvZzL-47OOlr7FWRFj6_FyZFL_aBMnN/pubhtml" class="hero-button">몬스터 데이터베이스</a>
+                    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vT66y8WeUKW-xG0m-ZNUtc78iN1IGBzt3ORs9uxlEK3hkP3Vu9zy-FKIL8G4n2rPXuA-Bvg0fs7ZcZn/pubhtml" class="hero-button">퀘스트 데이터베이스</a>
+                    <a href="https://artalemarket.com/library/ttl.php" class="hero-button">경험치 계산기</a>
+                    <a href="https://discord.com/invite/artale" class="hero-button">공식 디스코드 이동하기</a>
+                </div>
+            </div>
+        </div>
 
         <!-- Features Section -->
         <div class="features">
@@ -243,7 +235,7 @@
 
     <!-- Footer -->
     <div class="footer">
-        <p>&copy; 2023 아르테일 데이터베이스. All rights reserved.</p>
+        <p>&copy; 2025 아르테일 데이터베이스. All rights reserved.</p>
         <a href="개인정보 보호정책.txt">개인정보 보호정책</a> |
         <a href="서비스 약관.txt">서비스 약관</a> |
         <a href="https://ko-fi.com/heroaran50">제작자 후원하기</a>
@@ -251,9 +243,8 @@
         <p style="margin-top: 20px;">
             <strong>Credits:</strong>  
             <a href="https://maplestoryworlds.nexon.com/ko/profile/T5zGO">제작자 영웅아란</a>
-            <a href="https://artalemarket.com/">홈페이지 템플릿 제작자 Haz</a>
+            <a href="https://artalemarket.com/">홈페이지 템플릿 제자 Haz</a>
         </p>
     </div>
 </body>
 </html>
-
