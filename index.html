@@ -1,45 +1,112 @@
-
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>Artale怪物掉落物一覽</title>
-  <link rel="stylesheet" href="main.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artale Drop</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      width: 100%;
+      height: 100%;
+      font-family: 'Noto Sans KR', sans-serif;
+      overflow: hidden;
+    }
+    .main {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1;
+    }
+    .header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 2;
+    }
+    .logo {
+      height: 40px;
+    }
+    .sns img {
+      height: 30px;
+    }
+    .content {
+      text-align: center;
+      color: white;
+      z-index: 2;
+    }
+    .main-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .sub-title {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .character {
+      width: 250px;
+    }
+    .bg-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    @media screen and (max-width: 768px) {
+      .main-title {
+        font-size: 1.8rem;
+      }
+      .sub-title {
+        font-size: 1rem;
+      }
+      .character {
+        width: 180px;
+      }
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      gsap.from('.main-title', { opacity: 0, y: -50, duration: 1 });
+      gsap.from('.sub-title', { opacity: 0, y: -30, duration: 1, delay: 0.5 });
+      gsap.from('.character', { opacity: 0, scale: 0.8, duration: 1, delay: 1 });
+    });
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="disclaimer">
-    資料來源完全照搬自
-    <a href="https://docs.google.com/spreadsheets/d/1xb6FhSGcM6EIj7aDcUmxZA9zVxLEw8xxXxxej5Tcrt4/htmlview?gid=2100610320#gid=2100610320" target="_blank">
-      此 Google 試算表
-    </a>，若有任何錯誤請聯絡 Discord：<strong style="color:#ccc">PAPA#sesmegonxhic</strong>，或於 <a href="https://discord.com/channels/1364050807544090695/1372871456286969866" target="_blank">DC討論區貼文</a>反應（<a href="https://discord.com/invite/pAQYfS2eE5" target="_blank" style="color:#ccc; text-decoration: underline;">請先加入DC群</a>）<br>
-    目前名稱皆是台服原版的名稱，請各位協助填寫artale正確名稱於<a href="https://docs.google.com/spreadsheets/d/1opipjzN8rTARFgks--gYtmbxe8S34zQcJ4tj8KSQXyA/edit?usp=sharing" target="_blank">表格</a>中，我會定期更新到網頁中
-  </div>
-  <div class="top-bar">
-    <div class="controls">
-      <div class="search-controls">
-        <input type="text" id="search" placeholder="搜尋怪物或掉落物..." />
-        <label><input type="checkbox" id="toggle-filtered" /> 只顯示符合的掉落</label>
-        <label><input type="checkbox" id="toggle-name-hover" /> 只顯示掉落物圖片</label>
-        <label>等級：<input type="number" id="min-lv" style="width:70px;" placeholder="最小" /></label>
-        <label>~</label>
-        <label><input type="number" id="max-lv" style="width:70px;" placeholder="最大" /></label>
-        <button id="share-btn"
-          style="padding:0.2em 0.5em; border-radius:5px; border:1px solid #42aaff; background:#222; color:#42aaff; cursor:pointer;">分享</button>
-        <button class="toggle-regions-btn" onclick="toggleRegions()">區域選擇</button>
-        <button class="toggle-resistance-btn" onclick="toggleResistance()">屬性選擇</button>
+  <div class="main">
+    <header class="header">
+      <img src="https://a2983456456.github.io/artale-drop/assets/logo.png" alt="Artale 로고" class="logo" />
+      <div class="sns">
+        <a href="https://twitter.com/Artale_game" target="_blank">
+          <img src="https://a2983456456.github.io/artale-drop/assets/x-icon.png" alt="트위터 아이콘" />
+        </a>
       </div>
-      <div class="region-controls">
-        <button class="toggle-all-btn" onclick="toggleAllRegions()" style="margin-right: 1em; padding: 0.2em 0.5em; border-radius: 4px; border: 1px solid #666; background: #333; color: #ddd; cursor: pointer; font-size: 0.9em;">全選區域</button>
-        <button class="toggle-default-btn" onclick="selectDefaultRegions()" style="margin-right: 1em; padding: 0.2em 0.5em; border-radius: 4px; border: 1px solid #666; background: #333; color: #ddd; cursor: pointer; font-size: 0.9em;">選擇已開放區域</button>
-        <span id="region-checkboxes"></span>
-      </div>
-      <div class="resistance-controls">
-        <span id="resistance-checkboxes"></span>
-      </div>
-    </div>
-  </div>
-  <div id="drop-container">載入中...</div>
+    </header>
 
-  <script src="main.js"></script>
+    <section class="content">
+      <h1 class="main-title">ARtale 드롭 시작!</h1>
+      <p class="sub-title">아르타일 세계의 기묘한 이야기로 당신을 초대합니다</p>
+      <img src="https://a2983456456.github.io/artale-drop/assets/character.png" alt="캐릭터 이미지" class="character" />
+    </section>
+
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="https://a2983456456.github.io/artale-drop/assets/bg.mp4" type="video/mp4" />
+    </video>
+  </div>
 </body>
 </html>
