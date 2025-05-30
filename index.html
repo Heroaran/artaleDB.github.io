@@ -45,7 +45,7 @@
     let monsters = [];
 
     async function loadData() {
-      const response = await fetch('monsters.json');
+      const response = await fetch('monsters_optimized.json');
       monsters = await response.json();
       displayMonsters(monsters);
     }
@@ -61,12 +61,13 @@
         div.innerHTML = `
           <h2>${monster.name}</h2>
           <p><strong>지역:</strong> ${monster.region}</p>
-          <p><strong>레벨/정보:</strong> ${monster.level_or_info || '정보 없음'}</p>
-          <p><strong>속성/메소:</strong> ${monster.meso_or_attr || '정보 없음'}</p>
+          <p><strong>레벨:</strong> ${monster.level || '정보 없음'}</p>
+          <p><strong>속성:</strong> ${monster.attr || '정보 없음'}</p>
+          <ul>
           <p><strong>드롭 아이템:</strong></p>
           <ul>
-            ${monster.items.map(item => `<li>${item}</li>`).join('')}
-          </ul>
+             ${monster.drops.map(item => `<li>${item}</li>`).join('')}
+              </ul>
         `;
 
         list.appendChild(div);
