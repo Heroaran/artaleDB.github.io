@@ -6,7 +6,19 @@
     <title>아르테일 데이터베이스</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Hero-specific styles */
+        /* 전체 레이아웃 설정 */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            flex: 1;
+        }
+
+        /* Hero Section */
         .hero {
             background-color: #4CAF50;
             color: white;
@@ -28,23 +40,24 @@
             display: flex;
             justify-content: center;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
         .hero-button {
             text-decoration: none;
             color: white;
-            background-color: #4CAF50; /* Green, matching header */
+            background-color: #4CAF50;
             font-weight: bold;
             font-size: 18px;
             padding: 15px 25px;
-            border: 1px solid white; /* White border for contrast */
+            border: 1px solid white;
             border-radius: 5px;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .hero-button:hover {
-            background-color: white; /* White on hover */
-            color: #4CAF50; /* Green text */
+            background-color: white;
+            color: #4CAF50;
         }
 
         /* Features Section */
@@ -96,117 +109,98 @@
         .feature a:hover {
             background-color: #45a049;
         }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer a {
+            color: #1E90FF;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #FFD700;
+            text-decoration: underline;
+        }
+
+        .footer p {
+            margin: 10px 0;
+        }
+
+        .footer strong {
+            font-weight: bold;
+        }
     </style>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2214201539994248"
-     crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- Header -->
-    <header class="navbar">
-        <div class="logo">아르테일 데이터베이스</div>
-    </header>
+    <div class="container">
+        <!-- Header -->
+        <header class="navbar">
+            <div class="logo">아르테일 데이터베이스</div>
+        </header>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <div class="hero-content">
-            <h1>아르테일 데이터베이스</h1>
-            <p>아르테일에 대한 모든 정보를 한눈에!</p>
-            <div class="hero-links">
-                <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSRj5Swib-m3vK4_flan16RQud6EMcLCsuhwsLD4IrkzoNMaVvZzL-47OOlr7FWRFj6_FyZFL_aBMnN/pubhtml" class="hero-button">몬스터 데이터베이스</a>
-                <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vT66y8WeUKW-xG0m-ZNUtc78iN1IGBzt3ORs9uxlEK3hkP3Vu9zy-FKIL8G4n2rPXuA-Bvg0fs7ZcZn/pubhtml" class="hero-button">퀘스트 데이터베이스</a>
-                <a href="https://artalemarket.com/library/ttl.php" class="hero-button">경험치 계산기</a>
-                <a href="https://discord.com/invite/artale" class="hero-button">공식 디스코드 이동하기</a>
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <h1>아르테일 데이터베이스</h1>
+                <p>아르테일에 대한 모든 정보를 한눈에!</p>
+                <div class="hero-links">
+                    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSRj5Swib-m3vK4_flan16RQud6EMcLCsuhwsLD4IrkzoNMaVvZzL-47OOlr7FWRFj6_FyZFL_aBMnN/pubhtml" class="hero-button">몬스터 데이터베이스</a>
+                    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vT66y8WeUKW-xG0m-ZNUtc78iN1IGBzt3ORs9uxlEK3hkP3Vu9zy-FKIL8G4n2rPXuA-Bvg0fs7ZcZn/pubhtml" class="hero-button">퀘스트 데이터베이스</a>
+                    <a href="https://artalemarket.com/library/ttl.php" class="hero-button">경험치 계산기</a>
+                    <a href="https://discord.com/invite/artale" class="hero-button">공식 디스코드 이동하기</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features">
+            <div class="feature">
+                <h3>몬스터 데이터베이스</h3>
+                <p>몬스터의 레벨, 체력, 요구 명중률 등의 정보와 드랍테이블을 확인할 수 있습니다.</p>
+                <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSRj5Swib-m3vK4_flan16RQud6EMcLCsuhwsLD4IrkzoNMaVvZzL-47OOlr7FWRFj6_FyZFL_aBMnN/pubhtml">이동하기</a>
+            </div>
+            <div class="feature">
+                <h3>퀘스트 데이터베이스</h3>
+                <p>아르테일에 존재하는 퀘스트들의 클리어 조건, 보상 등의 정보를 확인할 수 있습니다.</p>
+                <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vT66y8WeUKW-xG0m-ZNUtc78iN1IGBzt3ORs9uxlEK3hkP3Vu9zy-FKIL8G4n2rPXuA-Bvg0fs7ZcZn/pubhtml">이동하기</a>
+            </div>
+            <div class="feature">
+                <h3>경험치 계산기</h3>
+                <p>레벨업에 필요한 아르테일의 경험치 요구량을 확인 및 계산할 수 있습니다.</p>
+                <a href="https://artalemarket.com/library/ttl.php">이동하기</a>
+            </div>
+            <div class="feature">
+                <h3>공식 디스코드 이동하기</h3>
+                <p>아르테일 공식 디스코드로 이동합니다.</p>
+                <a href="https://discord.com/invite/artale">이동하기</a>
             </div>
         </div>
     </div>
 
-    <!-- Features Section -->
-    <div class="features">
-        <div class="feature">
-            <h3>몬스터 데이터베이스</h3>
-            <p>몬스터의 레벨, 체력, 요구 명중률 등의 정보와 드랍테이블을 확인할 수 있습니다.</p>
-            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSRj5Swib-m3vK4_flan16RQud6EMcLCsuhwsLD4IrkzoNMaVvZzL-47OOlr7FWRFj6_FyZFL_aBMnN/pubhtml">이동하기</a>
-        </div>
-        <div class="feature">
-            <h3>퀘스트 데이터베이스</h3>
-            <p>아르테일에 존재하는 퀘스트들의 클리어 조건, 보상 등의 정보를 확인할 수 있습니다.</p>
-            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vT66y8WeUKW-xG0m-ZNUtc78iN1IGBzt3ORs9uxlEK3hkP3Vu9zy-FKIL8G4n2rPXuA-Bvg0fs7ZcZn/pubhtml">이동하기</a>
-        </div>
-        <div class="feature">
-            <h3>경험치 계산기</h3>
-            <p>레벨업에 필요한 아르테일의 경험치 요구량을 확인 및 계산할 수 있습니다.</p>
-            <a href="https://artalemarket.com/library/ttl.php">이동하기</a>
-        </div>
-        <div class="feature">
-            <h3>공식 디스코드 이동하기</h3>
-            <p>아르테일 공식 디스코드로 이동합니다.</p>
-            <a href="https://discord.com/invite/artale">이동하기</a>
-    </div>
-    
-         
-</script>
-
     <!-- Footer -->
-    <style>
-    /* Ensure the footer sticks to the bottom of the page */
-    body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh; /* Ensure the body is at least the height of the viewport */
-        margin: 0; /* Remove default margin */
-    }
+    <div class="footer">
+        <p>&copy; 2023 아르테일 데이터베이스. 이 사이트에서 사용되는 모든 이미지, 정보 및 자산은 제작자 소유이며 정보 제공 목적으로 공정하게 사용됩니다.</p>
+        <a href="개인정보 보호정책.txt">개인정보 보호정책</a> |
+        <a href="서비스 약관.txt">서비스 약관</a> |
+        <a href="https://ko-fi.com/heroaran50">제작자 후원하기</a>
 
-    .container {
-        flex: 0 0 auto; /* Prevent the container from stretching */
-        margin-bottom: 20px; /* Add space above the footer */
-    }
-
-    /* Footer Styling */
-    .footer {
-        background-color: #333; /* Dark background for contrast */
-        color: #fff; /* White text color */
-        text-align: center; /* Center-align the content */
-        padding: 20px 10px; /* Padding for space around the content */
-        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-        font-size: 14px; /* Adjust font size for readability */
-        line-height: 1.6; /* Increase line spacing */
-        margin-top: auto; /* Push the footer to the bottom of the viewport */
-    }
-
-    .footer a {
-        color: #1E90FF; /* Light blue color for links */
-        text-decoration: none; /* Remove underline from links */
-        margin: 0 10px; /* Space between links */
-        transition: color 0.3s ease; /* Smooth transition on hover */
-    }
-
-    .footer a:hover {
-        color: #FFD700; /* Golden color for hover effect */
-        text-decoration: underline; /* Underline on hover */
-    }
-
-    .footer p {
-        margin: 10px 0; /* Add spacing around paragraphs */
-    }
-
-    .footer strong {
-        font-weight: bold; /* Bold for credits */
-    }
-</style>
-
-<div class="footer">
-    <p>&copy; 2023 아르테일 데이터베이스. 이 사이트에서 사용되는 모든 이미지, 정보 및 자산은 제작자 소유이며 정보 제공 목적으로 공정하게 사용됩니다.</p>
-    <a href="개인정보 보호정책.txt">개인정보 보호정책</a> | 
-    <a href="서비스 약관.txt">서비스 약관</a> | 
-    <a href="https://ko-fi.com/heroaran50">제작자 후원하기</a>
-
-    <p style="margin-top: 20px;">
-        <strong>Credits:</strong>  
-        <a href="https://maplestoryworlds.nexon.com/ko/profile/T5zGO">제작자 영웅아란</a>
-        <a href="https://artalemarket.com/">홈페이지 템플릿 제작자 Haz</a>
-    </p>
-</div>
-
+        <p style="margin-top: 20px;">
+            <strong>Credits:</strong>  
+            <a href="https://maplestoryworlds.nexon.com/ko/profile/T5zGO">제작자 영웅아란</a>
+            <a href="https://artalemarket.com/">홈페이지 템플릿 제작자 Haz</a>
+        </p>
+    </div>
 </body>
 </html>
+
